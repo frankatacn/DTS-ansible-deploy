@@ -1,1 +1,3 @@
 docker_folder: '/mytomcat'
+adopserver: 13.52.25.188
+adopuser: frankatacn
