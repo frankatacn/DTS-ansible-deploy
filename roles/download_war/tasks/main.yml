@@ -10,12 +10,12 @@
 
 - name: Clone
   git:
-    repo: "http://{{ username }}:{{ password }}@your_ADOP_IP/gitlab/your_ADOP_user/tomcat.git"
+    repo: "http://{{ username }}:{{ password }}@{{ adopserver }}/gitlab/{{ adopuser }}/tomcat.git"
     dest: "{{ docker_folder }}"
 
 - name: Download war file
   get_url:
-    url: http://your_ADOP_IP/nexus/content/repositories/snapshots/your_GroupId/CurrencyConverter/1/CurrencyConverter-1.war
+    url: http://{{ adopserver }}/nexus/content/repositories/snapshots/{{ groupId }}/CurrencyConverter/1/CurrencyConverter-1.war
     dest: "{{ docker_folder }}/Resources/CurrencyConverter-1.war"
     mode: 0644
     url_password: "{{ password }}"
