@@ -1,3 +1,8 @@
+- name: Clean Directory
+  file:
+    path: "{{ docker_folder }}"
+    state: absent
+
 - name: Create Resources Folder
   file:
     path: "{{ docker_folder }}"
@@ -5,12 +10,12 @@
 
 - name: Clone
   git:
-    repo: "http://{{ username }}:{{ password }}@54.183.118.41:djcrucena/tomcat.git"
+    repo: "http://{{ username }}:{{ password }}@your_ADOP_IP/gitlab/your_ADOP_user/tomcat.git"
     dest: "{{ docker_folder }}"
 
 - name: Download war file
   get_url:
-    url: http://54.183.118.41/nexus/content/repositories/snapshots/DTSActivity/CurrencyConverter/1/CurrencyConverter-1.war
+    url: http://your_ADOP_IP/nexus/content/repositories/snapshots/your_GroupId/CurrencyConverter/1/CurrencyConverter-1.war
     dest: "{{ docker_folder }}/Resources/CurrencyConverter-1.war"
     mode: 0644
     url_password: "{{ password }}"
