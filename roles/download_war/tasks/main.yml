@@ -10,7 +10,7 @@
 
 - name: Clone
   git:
-    repo: "http://{{ username }}:{{ password }}@{{ adopserver }}/gitlab/{{ adopuser }}/tomcat.git"
+    repo: "http://{{ username }}:{{ password }}@{{ adopserver }}/gitlab/{{ username }}/tomcat.git"
     dest: "{{ docker_folder }}"
 
 - name: Download war file
